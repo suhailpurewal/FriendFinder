@@ -5,7 +5,7 @@ var path = require("path");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
-
+// not sure which one i needed, so pasted a bunch of ones from the npm documentation
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());

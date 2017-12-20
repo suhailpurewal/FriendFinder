@@ -1,12 +1,34 @@
 
-// This will be used to display a JSON of all possible friends.
-app.get("/api/friends", function(req, res) {
-  res.json(friends);;
-});
+var path = require('path');
 
 
-// This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic. 
-app.post("/api/friends", function(req, res) {
-	var newFriend = req.body;
-  	res.json(newFriend);
-});
+
+
+
+// ===============================================================================
+// ROUTING
+// ===============================================================================
+
+module.exports = function(app){
+
+	// HTML GET Requests
+	// Below code handles when users "visit" a page. 
+	// In each of the below cases the user is shown an HTML page of content
+	// ---------------------------------------------------------------------------
+
+	app.get('/', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/home.html'));
+	});
+
+	app.get('/survey', function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/survey.html'));
+	});
+
+	// If no matching route is found default to home
+	/*
+	app.use(function(req, res){
+		res.sendFile(path.join(__dirname + '/../public/home.html'));
+	});
+	*/
+
+}
